@@ -9,8 +9,14 @@ namespace Game {
 	class GameWindow {
 	public:
 		GameWindow(const std::string& title, int width, int height);
+		~GameWindow();
 
-		void Dispose();
+		GameWindow(const GameWindow& other) = delete;
+		GameWindow& operator=(const GameWindow& other) = delete;
+		GameWindow(GameWindow&& other) = delete;
+		GameWindow& operator=(GameWindow&& other) = delete;
+
+		/*void Dispose();*/
 		void Clear();
 		void RenderTexture(SDL_Texture* tex);
 		void Present();

@@ -10,13 +10,15 @@
 
 namespace Game {
 	GameWindow::GameWindow(const std::string& title, int width, int height) : m_Window(nullptr), m_Renderer(nullptr) {
+		const auto winFlags = SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI;
+
 		m_Window = SDL_CreateWindow(
 			title.c_str(),
 			SDL_WINDOWPOS_UNDEFINED,
 			SDL_WINDOWPOS_UNDEFINED,
 			width,
 			height,
-			SDL_WINDOW_SHOWN
+			winFlags
 		);
 
 		if (m_Window == nullptr) {
@@ -41,7 +43,7 @@ namespace Game {
 			return texture;
 	}
 
-	void GameWindow::Dispose() {
+	GameWindow::~GameWindow() {
 		LOG_TRACE("Disposing GameWindow");
 
 		SDL_DestroyRenderer(m_Renderer);

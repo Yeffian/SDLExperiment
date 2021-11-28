@@ -26,7 +26,7 @@ int Run() {
 
 	bool running = true;
 
-	std::unique_ptr<Game::GameWindow> window = std::make_unique<Game::GameWindow>(Game::GameWindow("SDL Window", 400, 400));
+	std::unique_ptr<Game::GameWindow> window = std::make_unique<Game::GameWindow>("SDL Window", 400, 400);
 	LOG_INFO("Creating Window.")
 
     SDL_Texture* grass = window->LoadTex("res/gfx/ground_grass_1.png");
@@ -47,6 +47,5 @@ int Run() {
 		window->Present();
 	}
 
-	window->Dispose();
 	SDL_Quit();
 }
