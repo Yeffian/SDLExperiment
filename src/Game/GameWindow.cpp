@@ -54,8 +54,22 @@ namespace Game {
 		SDL_RenderClear(m_Renderer);
 	}
 
-	void GameWindow::RenderTexture(SDL_Texture* tex) {
-		SDL_RenderCopy(m_Renderer, tex, nullptr, nullptr);
+	void GameWindow::Render(Entity& entity, int scaler)
+	{
+		SDL_Rect src;
+		src.x = 0;
+		src.y = 0;
+		src.w = 32;
+		src.h = 32;
+
+		SDL_Rect dst;
+		dst.x = entity.GetX() * scaler;
+		dst.y = entity.GetY() * scaler;
+		dst.w = 32 * scaler;
+		dst.h = 32 * scaler;
+
+
+		SDL_RenderCopy(m_Renderer, entity.GetTexture(), &src, &dst);
 	}
 
 	void GameWindow::Present() {

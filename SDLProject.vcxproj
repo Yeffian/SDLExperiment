@@ -145,10 +145,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Game\Entity.cpp" />
     <ClCompile Include="src\Game\GameWindow.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Game\Entity.h" />
     <ClInclude Include="src\Game\GameRunner.h" />
     <ClInclude Include="src\Game\GameWindow.h" />
     <ClInclude Include="src\Game\Log\Log.h" />

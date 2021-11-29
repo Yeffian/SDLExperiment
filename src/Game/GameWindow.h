@@ -3,6 +3,7 @@
 
 #include "SDL.h"
 #include "SDL_image.h"
+#include "./Entity.h"
 #include <string>
 
 namespace Game {
@@ -18,7 +19,7 @@ namespace Game {
 
 		/*void Dispose();*/
 		void Clear();
-		void RenderTexture(SDL_Texture* tex);
+		void Render(Entity& tex, int scaler);
 		void Present();
 		SDL_Texture* LoadTex(std::string path);
 	private:

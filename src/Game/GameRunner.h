@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include "./GameWindow.h"
+#include "./Entity.h"
 #include "./Log/Log.h"
 
 int Run() {
@@ -30,6 +31,7 @@ int Run() {
 	LOG_INFO("Creating Window.")
 
     SDL_Texture* grass = window->LoadTex("res/gfx/ground_grass_1.png");
+	Game::Entity grassEntity(100, 100, grass);
 	
 	SDL_Event e;
 	while (running) {
@@ -43,9 +45,11 @@ int Run() {
 		}
 
 		window->Clear();
-		window->RenderTexture(grass);
+		window->Render(grassEntity, 3);
 		window->Present();
 	}
 
 	SDL_Quit();
+
+	return 0;
 }
